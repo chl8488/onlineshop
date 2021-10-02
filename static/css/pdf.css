@@ -1,0 +1,47 @@
+body {
+    font-family:Helvetica, sans-serif;
+    color:#222;
+    line-height:1.5em;
+}
+/* css는 수치가 4개들어가거나 2개,1개 이렇게들어가는데 1개는 다적용
+ 2개는 위 아래 좌 우 4개는 위 오른쪽 아래 왼쪽*/
+table {
+    width:100%;
+    border-spacing:0;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+
+table th, table td{
+    text-align:left;
+    font-size:14px;
+    padding:10px;
+    margin:0;
+}
+
+tbody tr:nth-child(odd){
+    background:#efefef;
+}
+thead th, tbody tr.discount { /* pdf.html의 <tr class="discount"> 요부분 */
+    background:#46a500;
+    color:#fff; /* 흰색 */
+    font-weight:bold;
+}
+tbody tr.total {
+    background:#5993bb;
+    color:#fff;
+    font-weight:bold;
+}
+
+h1 {
+margin:0;
+}
+
+.secondary {
+    color:#bbb;
+    margin-bottom:20px;
+}
+
+.num {
+    text-align:right;
+}

@@ -1,0 +1,47 @@
+{% extends 'admin/base_site.html' %}
+{% block title %}
+    Order {{order.id}} Detail
+{% endblock %}
+
+<!--breadcrumbs 빵부스러기(지금 어느페이지쯤에 있습니다 알려주는것(페이지 네비게이터))-->
+{% block breadcrumbs %}<!--Home › Order › Order 4 ›Detail 이런식으로 나타남-->
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">Home</a> &rsaquo;
+        <a href="{% url 'admin:order_order_changelist' %}">Order</a> &rsaquo;
+        <a href="{% url 'admin:order_order_change' order.id %}">Order
+        {{order.id}}</a> &rsaquo;Detail
+        <!--앱이름 모델이름 규격-->
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1>Order {{order.id}}</h1>
+    <ul class="object-tools">
+        <li>
+            <!--현재 페이지에 대한 출력창(크롬이나 브라우저의 출력창을 띄워줌) -->
+            <a href="#" onclock="window.print();">Print Order</a>
+        </li>
+    </ul>
+    <table>
+        <tr>
+            <th>Created</th>
+            <td>{{order.created}}</td>
+        </tr>
+        <tr>
+            <th>Customer</th><!--열 혹은 셀의 헤더-->
+            <td>{{order.first_name}} {{order.last_name}}</td>
+        </tr>
+        <tr>
+            <th>E-mail</th>
+            <td>{{order.email}}</td>
+        </tr>
+        <tr>
+            <th>Adress</th>
+            <td>{{order.address}} {{order.postal_code}} {{order.city}}</td>
+        </tr>
+        <tr>
+            <th>Total amount</th>
+            <td>{{order.get_total_price}}</td>
+        </tr>
+    </table>
+{% endblock %}
